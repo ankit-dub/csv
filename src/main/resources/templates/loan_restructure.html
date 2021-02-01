@@ -1,0 +1,194 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Loan Restructure</title>
+    <style>
+#table {
+  -fs-table-paginate: paginate;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: grey;
+  color: white;
+}
+
+#table td{
+    font-size: 15px;
+}
+.container{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mainTable{
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 65px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+.mainTable th,td{
+  border: 1px solid black;
+}
+
+.mainTable td {
+  text-align: left;
+  font-size: 15px;
+}
+
+.mainTable td:nth-child(odd){
+  font-weight: bold;
+}
+
+.myTable {
+  border-collapse: collapse;
+  width: 90%;
+  margin: 25px 33px 25px 33px;
+}
+
+.myTable th,td{
+  text-align: center;
+  border: 1px solid black;
+  font-size: 18px;
+  padding : 5px;
+  font-family:Calibri, Candara, sans-serif;
+}
+
+p.big {
+  line-height: 1.6;
+  margin-left:33px;
+  margin-right:33px;
+  font-family:Calibri, Candara, sans-serif;
+}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div style="text-align: center; margin-bottom: 65px;">
+        <img alt="" src="data:image/png;base64,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" style="width: 260px; height: 50px; text-align: center;"></img>
+    </div>
+    <h2>Personal Details</h2>
+
+    <table class="mainTable">
+        <tr>
+            <td>Name</td>
+            <td th:text="${name}"></td>
+            <td>Time Stamp</td>
+            <td th:text="${time}"></td>
+        </tr>
+        <tr>
+            <td>Phone No.</td>
+            <td th:text="${phone}"></td>
+            <td>Old Loan ID</td>
+            <td th:text="${oldLoanId}"></td>
+        </tr>
+    </table>
+
+    <h2>Loan Details</h2>
+
+    <table class="mainTable">
+        <tr>
+            <td>Ref. No.</td>
+            <td th:text="${refNo}"></td>
+            <td>New Loan ID</td>
+            <td th:text="${newLoanId}"></td>
+        </tr>
+        <tr>
+            <td>Loan Amount</td>
+            <td th:text="'Rs. ' + ${amount}"></td>
+            <td>Rate Of Interest</td>
+            <td th:text="${interest} + ' %'"></td>
+        </tr>
+        <tr>
+            <td>NBFC Partner</td>
+            <td th:text="${partnerName}"></td>
+            <td>Loan Tenure</td>
+            <td th:text="${tenure} + ' months'"></td>
+        </tr>
+    </table>
+
+    <h2 style="text-align: center;">Terms and Conditions</h2>
+
+
+    <p class="big">• The loan restructuring facility is extended to a selected set of customers by the lender,
+        at its discretion, to provide relief to financially stressed borrowers amidst the
+        COVID-19 pandemic in line with the prevailing RBI guidelines/circulars.<br></br><br></br>
+        • The loan restructuring option is a one-time irreversible facility. Hence, once the
+        restructuring option is accepted by you and thereafter, implemented, the changes
+        cannot be reversed. No further restructuring shall be permitted.<br></br><br></br>
+        • The restructuring option can be availed by paying an upfront nominal commitment
+        fee of INR 236/- as per the below mentioned breakup.</p>
+
+    <table class="myTable">
+        <thead>
+        <tr>
+            <th>Restructuring Fee</th>
+            <th>GST on Restructuring Fee</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="color: grey;">
+            <td th:text="'INR ' + ${fee} + '/-'"></td>
+            <td th:text="'INR ' + ${gstFee} + '/-'"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p class="big">• Upon completion of the restructuring process, the existing loan will be closed by the
+        lender and a new loan account will be created. All future repayments must be made
+        towards the newly created loan account.<br></br><br></br>
+        • Upon completion of the restructuring process, the existing loan will be closed by the
+        lender and a new loan account will be created. All future repayments must be made
+        towards the newly created loan account.• The loan amount of the restructured loan includes the outstanding
+        principal amount of the
+        existing loan and the accrued interest till the upcoming EMI due date.<br></br><br></br>
+        • The tenure of the restructured loan will be increased by the lender based on the balance
+        eligible tenure to lower down the EMI amount.<br></br><br></br>
+        • There will be no change in the EMI due date and mode of repayment.<br></br><br></br>
+        • The restructured EMI will be applicable from the subsequent month, subject to request
+        being placed on or before 30th of the month. However, in case the request is placed after
+        30th of the month, the restructured EMI will be applicable from the month after the
+        upcoming EMI due date. Last date of Restructuring application is 31st Dec, 2020.<br></br><br></br>
+        • The original loan will be reported as “Closed” in 0-30 DPD cases and “Closed and
+        Restructured” in 30+ DPD cases.<br></br><br></br>
+        • For credit line cases, all the active lines will be consolidated and restructured at once. Also,
+        the drawdown facility on the unutilised credit line will be terminated.</p>
+
+
+    <h2 style="text-align: center;  margin-top: 45px;">Loan Reschedule</h2>
+    <table id="table">
+        <thead>
+        <tr>
+            <th>Principal</th>
+            <th>EMI</th>
+            <th>Interest</th>
+            <th>EMI Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="loanList : ${loanLists}">
+            <td th:text="${loanList.principal}"></td>
+            <td th:text="${loanList.emi}"></td>
+            <td th:text="${loanList.interest}"></td>
+            <td th:text="${loanList.date}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
