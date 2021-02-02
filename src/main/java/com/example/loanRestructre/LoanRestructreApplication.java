@@ -26,19 +26,6 @@ public class LoanRestructreApplication {
         thymeleaf2Pdf.parseThymleaf();
     }
 
-
-    public void generatePdfFromHtml(String html) throws IOException, DocumentException {
-        String file = "src/main/resources/loanRestructure.pdf";
-        OutputStream outputStream = new FileOutputStream(file);
-
-        ITextRenderer renderer = new ITextRenderer();
-        renderer.setDocumentFromString(html);
-        renderer.layout();
-        renderer.createPDF(outputStream);
-
-        outputStream.close();
-    }
-
     private void parseThymleaf() throws SQLException, IOException, DocumentException {
         ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
         templateResolver.setSuffix(".html");
@@ -80,20 +67,26 @@ public class LoanRestructreApplication {
                 context.setVariable("loanLists", loanLists);
                 String html = templateEngine.process("templates/loan_restructure", context);
 
-                String file = "src/main/resources/loanRestructure_" + newLoanId + ".pdf";
-                OutputStream outputStream = new FileOutputStream(file);
-
-                ITextRenderer renderer = new ITextRenderer();
-                renderer.setDocumentFromString(html);
-                renderer.layout();
-                renderer.createPDF(outputStream);
-
-                outputStream.close();
+                generatePdfFromHtml(html,newLoanId);
             }
         } catch (SQLException | ClassNotFoundException e) {
             LOG.error("Unable to parse");
             e.printStackTrace();
         }
     }
+
+    public void generatePdfFromHtml(String html, String newLoanId) throws IOException, DocumentException {
+        String file = "src/main/resources/loanRestructure_" + newLoanId + ".pdf";
+        OutputStream outputStream = new FileOutputStream(file);
+
+        ITextRenderer renderer = new ITextRenderer();
+        renderer.setDocumentFromString(html);
+        renderer.layout();
+        renderer.createPDF(outputStream);
+
+//        GoogleDriveService.uploadToDrive(file);
+        outputStream.close();
+    }
+
 
 }

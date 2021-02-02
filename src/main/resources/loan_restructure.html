@@ -1,0 +1,178 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Loan Restructure</title>
+    <style>
+#table {
+  -fs-table-paginate: paginate;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#table td, #table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: grey;
+  color: white;
+}
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.mainTable{
+  border-collapse: collapse;
+  width: 100%;
+}
+.mainTable th,td{
+  border: 1px solid black;
+}
+
+.mainTable td {
+  text-align: left;
+}
+
+.mainTable td:nth-child(odd){
+  font-weight: bold;
+}
+
+.myTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.myTable th,td{
+  text-align: center;
+  border: 1px solid black;
+  font-size: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div style="text-align: center;">
+        <img alt="" src="/static/images/Mt_LOGO.png" style="width: 491px; height: 125px; text-align: center;"></img>
+    </div>
+    <h2>Personal Details</h2>
+
+    <table class="mainTable">
+        <tr>
+            <td>name</td>
+            <td th:text="${name}"></td>
+            <td>Time Stamp</td>
+            <td th:text="${time}"></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td th:text="${phone}"></td>
+            <td>Old Loan ID</td>
+            <td th:text="${oldLoanId}"></td>
+        </tr>
+    </table>
+
+    <h2>Loan Details</h2>
+
+    <table class="mainTable">
+        <tr>
+            <td>Ref. No.</td>
+            <td th:text="${refNo}"></td>
+            <td>New Loan ID</td>
+            <td th:text="${newLoanId}"></td>
+        </tr>
+        <tr>
+            <td>Loan Amount</td>
+            <td th:text="'Rs. ' + ${amount}"></td>
+            <td>Rate Of Interest</td>
+            <td th:text="${interest} + ' %'"></td>
+        </tr>
+        <tr>
+            <td>NBFC Partner</td>
+            <td th:text="${partnerName}"></td>
+            <td>Loan Tenure</td>
+            <td th:text="${tenure} + ' months'"></td>
+        </tr>
+    </table>
+
+    <h2 style="text-align: center;">Terms and Conditions</h2>
+
+
+    <p>• The loan restructuring facility is extended to a selected set of customers by the lender,
+        at its discretion, to provide relief to financially stressed borrowers amidst the
+        COVID-19 pandemic in line with the prevailing RBI guidelines/circulars.<br></br>
+        • The loan restructuring option is a one-time irreversible facility. Hence, once the
+        restructuring option is accepted by you and thereafter, implemented, the changes
+        cannot be reversed. No further restructuring shall be permitted.<br></br>
+        • The restructuring option can be availed by paying an upfront nominal commitment
+        fee of INR 236/- as per the below mentioned breakup.</p>
+
+    <table class="myTable">
+        <thead>
+        <tr>
+            <th>Restructuring Fee</th>
+            <th>GST on Restructuring Fee</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr style="color: grey;">
+            <td th:text="'INR ' + ${fee} + '/-'"></td>
+            <td th:text="'INR ' + ${gstFee} + '/-'"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p>• Upon completion of the restructuring process, the existing loan will be closed by the
+        lender and a new loan account will be created. All future repayments must be made
+        towards the newly created loan account.<br></br>
+        • Upon completion of the restructuring process, the existing loan will be closed by the
+        lender and a new loan account will be created. All future repayments must be made
+        towards the newly created loan account.• The loan amount of the restructured loan includes the outstanding
+        principal amount of the
+        existing loan and the accrued interest till the upcoming EMI due date.<br></br>
+        • The tenure of the restructured loan will be increased by the lender based on the balance
+        eligible tenure to lower down the EMI amount.<br></br>
+        • There will be no change in the EMI due date and mode of repayment.<br></br>
+        • The restructured EMI will be applicable from the subsequent month, subject to request
+        being placed on or before 30th of the month. However, in case the request is placed after
+        30th of the month, the restructured EMI will be applicable from the month after the
+        upcoming EMI due date. Last date of Restructuring application is 31st Dec, 2020.<br></br>
+        • The original loan will be reported as “Closed” in 0-30 DPD cases and “Closed and
+        Restructured” in 30+ DPD cases.<br></br>
+        • For credit line cases, all the active lines will be consolidated and restructured at once. Also,
+        the drawdown facility on the unutilised credit line will be terminated.</p>
+
+
+    <h2>Loan Reschedule</h2>
+    <table id="table">
+        <thead>
+        <tr>
+            <th>Emi</th>
+            <th>Principal</th>
+            <th>interest</th>
+            <th>date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="loanList : ${loanLists}">
+            <td th:text="${loanList.emi}"></td>
+            <td th:text="${loanList.principal}"></td>
+            <td th:text="${loanList.interest}"></td>
+            <td th:text="${loanList.date}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
