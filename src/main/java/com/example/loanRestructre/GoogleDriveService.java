@@ -15,7 +15,6 @@ import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
-import javafx.scene.input.ClipboardContentBuilder;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,15 +29,12 @@ public class GoogleDriveService {
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
     private static final String TOKENS_DIRECTORY_PATH = "tokens";
 
-    /**
-     * Global instance of the scopes required by this quickstart.
-     * If modifying these scopes, delete your previously saved tokens/ folder.
-     */
-    private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_METADATA_READONLY);
+
+    private static final List<String> SCOPES = Collections.singletonList(DriveScopes.DRIVE_FILE);
     private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
 
-    // Build a new authorized API client service.
     static NetHttpTransport HTTP_TRANSPORT = null;
+    private static Drive service;
 
     static {
         try {
@@ -49,8 +45,6 @@ public class GoogleDriveService {
             e.printStackTrace();
         }
     }
-
-    private static Drive service;
 
     static {
         try {
@@ -65,12 +59,6 @@ public class GoogleDriveService {
     public GoogleDriveService() throws IOException, GeneralSecurityException {
     }
 
-    /**
-     * Creates an authorized Credential object.
-     * @param HTTP_TRANSPORT The network HTTP Transport.
-     * @return An authorized Credential object.
-     * @throws IOException If the credentials.json file cannot be found.
-     */
     private static Credential getCredentials(final NetHttpTransport HTTP_TRANSPORT) throws IOException {
         // Load client secrets.
         InputStream in = GoogleDriveService.class.getResourceAsStream(CREDENTIALS_FILE_PATH);
@@ -109,9 +97,9 @@ public class GoogleDriveService {
 
     public static void uploadToDrive(String file) throws IOException {
         File fileMetadata = new File();
-        fileMetadata.setName(file);
+        fileMetadata.setName(file.substring(19));
         java.io.File filePath = new java.io.File(file);
-        FileContent mediaContent = new FileContent("application/vnd.google-apps.file", filePath);
+        FileContent mediaContent = new FileContent("application/pdf", filePath);
         File fileToUpload = service.files().create(fileMetadata, mediaContent)
                 .setFields("id")
                 .execute();
