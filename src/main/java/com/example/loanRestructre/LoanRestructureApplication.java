@@ -43,23 +43,21 @@ public class LoanRestructureApplication {
             Statement stmt = conn.createStatement();
             Statement insideStmt = conn.createStatement();
             ResultSet resultSet = stmt.executeQuery("SELECT * FROM loan_detail");
-            resultSet.next();
-            resultSet.next();
 
-//            while (resultSet.next()) {
-            String newLoanId = resultSet.getString("new_loan_id");
-            context.setVariable("name", resultSet.getString("name"));
-            context.setVariable("time", resultSet.getString("restructured_date"));
-            context.setVariable("phone", resultSet.getString("phone"));
-            context.setVariable("oldLoanId", resultSet.getString("old_loan_id"));
-            context.setVariable("refNo", resultSet.getString("ref_id"));
-            context.setVariable("newLoanId", resultSet.getString("new_loan_id"));
-            context.setVariable("amount", resultSet.getString("amount_requested"));
-            context.setVariable("interest", resultSet.getString("rate_of_interest"));
-            context.setVariable("partnerName", resultSet.getString("nbfc_partner"));
-            context.setVariable("tenure", resultSet.getString("tenure_in_months"));
-            context.setVariable("fee", resultSet.getString("restructure_fee"));
-            context.setVariable("gstFee", resultSet.getString("gst_restructure_fee"));
+            while (resultSet.next()) {
+                String newLoanId = resultSet.getString("new_loan_id");
+                context.setVariable("name", resultSet.getString("name"));
+                context.setVariable("time", resultSet.getString("restructured_date"));
+                context.setVariable("phone", resultSet.getString("phone"));
+                context.setVariable("oldLoanId", resultSet.getString("old_loan_id"));
+                context.setVariable("refNo", resultSet.getString("ref_id"));
+                context.setVariable("newLoanId", resultSet.getString("new_loan_id"));
+                context.setVariable("amount", resultSet.getString("amount_requested"));
+                context.setVariable("interest", resultSet.getString("rate_of_interest"));
+                context.setVariable("partnerName", resultSet.getString("nbfc_partner"));
+                context.setVariable("tenure", resultSet.getString("tenure_in_months"));
+                context.setVariable("fee", resultSet.getString("restructure_fee"));
+                context.setVariable("gstFee", resultSet.getString("gst_restructure_fee"));
             List<LoanList> loanLists = new ArrayList<>();
             ResultSet amortRes = insideStmt.executeQuery("SELECT * FROM amort_detail WHERE new_loan_id ='" + newLoanId + "'");
             while (amortRes.next()) {
@@ -69,7 +67,7 @@ public class LoanRestructureApplication {
             String html = templateEngine.process("templates/loan_restructure", context);
 
             generatePdfFromHtml(html, newLoanId);
-//            }
+            }
         } catch (SQLException | ClassNotFoundException e) {
             LOG.error("Unable to parse");
             e.printStackTrace();
@@ -77,7 +75,7 @@ public class LoanRestructureApplication {
     }
 
     public void generatePdfFromHtml(String html, String newLoanId) throws IOException, DocumentException {
-        String file = "src/main/resources/loanRestructure_" + newLoanId + ".pdf";
+        String file = "src/main/resources/incred/loanRestructure_" + newLoanId + ".pdf";
         OutputStream outputStream = new FileOutputStream(file);
 
         ITextRenderer renderer = new ITextRenderer();
