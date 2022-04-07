@@ -1,0 +1,278 @@
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Registration Cumulative</title>
+    <style>
+
+.table{
+  width: 100%;
+  text-align: left;
+}
+
+.table th,td{
+  text-align: center;
+  width:33%;
+}
+
+.mainTable{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.mainTable th,td{
+  border: 1px solid black;
+  text-align: left;
+}
+
+    </style>
+</head>
+<body>
+<p><i>This Loan Agreement (<b>&quot;Agreement&quot;</b>) is executed at Delhi on this; Timestamp</i></p><p th:text="${timestamp}"></p>
+
+<p style="text-align: center;">BY AND BETWEEN</p>
+
+<p>Lender(s) registered with Transactree Technologies Private Limited (&quot;Lendbox&quot;), a P2P NBFC licensed by the
+    Reserve Bank of India, on the platform
+    <a href="https://www.google.com/url?q=http://www.lendbox.in&amp;sa=D&amp;source=editors&amp;ust=1649338116448020&amp;usg=AOvVaw0fgieeC-TQA-uCWTBWdOiF">www.lendbox.in</a>
+</p>
+
+<p style="text-align: center;">AND</p>
+
+<p>The &quot;Borrower&quot; as described in Annexure 2 hereunder, which expression unless repugnant to the context shall
+    mean and includes its legal representatives, permitted assigns and successors.</p>
+
+<p>The Lender and the Borrower are hereinafter individually referred to as the <b>&quot;Party&quot;</b> and collectively
+    as the <b>&quot;Parties&quot;</b>. </p>
+<p><b>WHEREAS</b> the Parties have agreed to enter into this agreement on the terms and conditions contained hereinafter
+    as follows:</p>
+
+<ol>
+    <li>The Lender agrees to lend to the Borrower and the Borrower agrees to borrow an unsecured line of credit (&quot;Loan&quot;)
+        in accordance with the terms and conditions mentioned in Annexure 2 hereunder.
+    </li>
+    <li>The Lenders for the Loan will be determined by Lendbox. The Lender to this Loan may be more than one depending
+        on the total Loan amount. For detailed lender information visit www.lendbox.in
+    </li>
+    <li>Lendbox has entered into an agreement with MYWN Tech Private Limited(hereinafter referred to as the &quot;FREO&quot;).
+        The Borrower is a customer registered on the FREO&rsquo;S platform and BOTH PARTIES agree that the terms of this
+        agreement are subject to the terms and conditions laid down in the agreement signed between Lendbox &amp; FREO
+        &ndash; described in detail in Annexure 1.
+    </li>
+    <li>Lendbox has authorized various third parties to provide services with regard to onboarding, management and
+        collections from the Borrower and act as a customer touch points besides Lendbox&rsquo;s own personnel. FREO is
+        one such partner.
+    </li>
+    <li>The Parties acknowledge that the transaction of lending and repayment is being facilitated by Transactree
+        Technologies Private Limited (hereinafter &quot;Lendbox&quot;) through its platform. Lendbox shall partner with
+        FREO, whereby the Loan will be facilitated via the online account opened for the Borrower on the mobile
+        application or website operated by FREO, hereafter called the &quot;Service Platform&quot;. The Loan may be
+        availed by the Borrower through the Service Platform.
+    </li>
+    <li>The Lender shall deposit the amount in the unique virtual escrow account being operated by Lendbox details of
+        which have been provided to the Lender. The amount shall be transferred and disbursed from the Nodal account set
+        up by Lendbox and Partner for disbursements in no later than 48 hours from the time of funding of the escrow
+        account by the Lender, subject to any banking holiday and such delay if any will not change the terms and
+        conditions of the Loan repayment in any manner. It is the Partner&rsquo;s responsibility to transfer the amount
+        into Borrower&rsquo;s account or into any other account identified by the Borrower, such as the merchant etc.
+        from the nodal account. The Borrower shall deposit the repayments for the Loan through the Service Platform, and
+        the Partner shall transfer these repayments in the account specified by Lendbox, being the escrow account of
+        Lendbox for repayments based on the terms and conditions of the loan repayment mentioned in Annexure 2.
+    </li>
+    <li>The Borrower shall repay the Loan (including interest, additional interest and other charges thereon) in
+        accordance with Annexure 2 hereunder. It is hereby clarified that the Lendbox acting on behalf of lender(s)
+        reserves the right to modify including increase, decrease or suspend the line or credit mentioned in Annexure 2
+        at any time, at its sole discretion. In the event of any material and significant modification to Annexure 2,
+        Lendbox shall issue a fresh Sanction Letter to the Borrower.
+    </li>
+    <li>The Loan is unsecured and no security has been provided by the Borrower to the Lender to secure his repayment/
+        payment obligations in terms of this Agreement.
+    </li>
+    <li>The Borrower may, subject to applicable law, prepay the entire outstanding Loan Amount along with interest,
+        additional interest and other charges as applicable, at any time as per the repayment schedule specified in
+        Annexure 2.
+    </li>
+    <li>Each Party represents and warrants that it is entitled to enter into this Agreement and to undertake the
+        obligations herein contained. The Lender represents and warrants that the funds for the Loan as specified in
+        Annexure 2 shall be ready and available in the escrow account of Lendbox on or prior to the date of this
+        Agreement, failing which the repayment schedule, Loan due date, billing date etc would be altered.
+    </li>
+    <li>Each Party further represents and warrants that its respective signatory, as applicable, to this Agreement are
+        duly authorized to execute the same in a manner binding upon the Party and that all approvals and procedures
+        necessary for vesting such authority in its signatory have been duly obtained and complied with.
+    </li>
+    <li>The occurrence of any of the following events, or events similar thereto, shall each constitute an event of
+        default (&quot;Event of Default&quot;):
+    </li>
+    <ol type="a">
+        <li>The Borrower does not pay any amount due and payable pursuant to this Agreement in accordance with the terms
+            of this Agreement on the date such amount is payable;
+        </li>
+        <li>The breach of, or omission to observe, or default by the Borrower in observing any of its obligations,
+            covenants, warranties, undertakings under this Agreement;
+        </li>
+        <li>Any representation or statement made or deemed to be made by the Borrower in this Agreement or any other
+            document delivered by or on behalf of the Borrower under or in connection with the Agreement being or being
+            proven to have been incorrect or misleading when made or deemed to be made; or
+        </li>
+        <li>The Borrower is declared insolvent or files for insolvency or any attachment, distress execution or any
+            other such process is initiated against the Borrower.
+        </li>
+    </ol>
+    <li>Upon the occurrence of an Event of Default, the Lender and Lendbox on behalf of the Lender, shall, without the
+        requirement of serving any notice/default notice to the Borrower:
+    </li>
+    <ol type="a">
+        <li>declare that the Loan Amount, together with accrued interest, additional interest and all other amounts
+            accrued or outstanding under this Agreement be immediately due and payable, whereupon they shall become
+            immediately due and payable;
+        </li>
+        <li>encash or present for encashment, the undated, postdated, signed cheques provided as Collateral in order to
+            recover any or all of the amounts outstanding to the Lender; or
+        </li>
+        <li>exercise such other rights as may be available to the Lender under Applicable Law.
+        </li>
+    </ol>
+
+    <li>This Agreement shall come into force on the date of execution of this Agreement and shall remain in full force
+        until the repayment of the entire portion of the Loan Amount along with all interest, additional interest, dues,
+        charges, taxes as may be applicable.
+    </li>
+    <li>The Parties agree and undertake that they shall, at all times, during the continuance of this Agreement, ensure
+        that all the terms and conditions of this Agreement and all information relating to the Loan Amount shall be
+        kept confidential (<b>&quot;Confidential Information&quot;</b>) and they shall not disclose any information
+        relating to this Agreement to any third party, without the prior written consent of the other Party other than
+        information relating to:
+    </li>
+    <ol type="a">
+        <li>information and data relating to it;</li>
+        <li>information or data relating to any credit facility availed by / to be availed by it;</li>
+        <li>default if any committed by it in discharge of our such obligation, as the Lender may deem appropriate and
+            necessary to disclose and furnish to credit information agencies and any other agency authorized in this
+            behalf by Reserve Bank of India; which shall not be considered confidential in nature.
+        </li>
+    </ol>
+
+    <li>The Borrower agrees and undertakes that the information and data furnished by it to the Lender and to Lendbox
+        pursuant to this Agreement and in relation thereto, are true and correct and consents that any agency authorized
+        by the Lender or Lendbox may use and process the information and data provided under this agreement.
+    </li>
+    <li>The Borrower shall indemnify and hold the Lender and Lendbox harmless from and against any and all loss, damage
+        or other consequences which may arise or result from giving the Loan to the Borrower and shall reimburse the
+        Lender and/or Lendbox upon demand all such sums and shall upon request appear and defend at the Borrower&rsquo;s
+        own cost and expenses any action which may be brought against the Lender in connection therewith and shall
+        accept the statement of account presented by the party claiming the loss as conclusive proof of the correctness
+        of any such claim to be due from him.
+    </li>
+    <li>The Agreement shall be governed by the laws of India and courts at [Delhi] shall have exclusive jurisdiction to
+        settle any disputes which may arise out of or in connection with this Agreement. The Parties irrevocably agree
+        to submit to that jurisdiction, to the exclusion of other Courts.
+    </li>
+    <li>The Borrower shall reimburse and pay to the Lender all costs, charges and expenses, including stamp duty and
+        legal costs on actual basis and other charges and expenses which may be incurred in preparation of these
+        presents and related to and or incidental documents and enforcement of the rights of the Lender there under or
+        any other document security created / executed by the Borrower in favour of the Lender.
+    </li>
+    <li>The Borrower shall not assign any of its rights or obligations under this Agreement. The Lender may assign this
+        Agreement and all rights hereunder or transfer the benefit of the whole or any part of this Agreement to any
+        third party through Lendbox, without the prior consent of the Borrower. Lendbox shall inform the Borrower of
+        such assignment through their platform
+        <a href="https://www.google.com/url?q=http://www.lendbox.in/&amp;sa=D&amp;source=editors&amp;ust=1649338116456896&amp;usg=AOvVaw3fNaXIgWbRtAz2337ZmboZ">www.lendbox.in</a>
+        within 5 working days of such assignment.
+    </li>
+    <li>Notwithstanding anything contained herein, the parties agree that they have authorized Lendbox to appoint a
+        suitable agency as the recovery agent (&quot;Recovery Agent&quot;) for recovery of any amounts due and payable
+        under this Agreement. The Recovery Agents shall take all such reasonable steps as might be necessary for
+        recovery; however, the Recovery Agents do not guarantee an assured recovery of dues. That the charges being
+        levied by the Recovery Agent shall be to the account of the Lender. The Parties understand that Lendbox is only
+        offering its assistance in recovery on account of a default and in no manner is liable for any default, being a
+        marketplace for prospective lenders and borrowers to meet and interact. For the purpose of this Loan, The
+        Recovery Agent shall be Partner and it&rsquo;s service providers or sub-agents.
+    </li>
+    <li>The rights, powers and remedies given to the Lender by this Agreement shall be in addition to all rights, powers
+        and remedies given to the Lender by virtue of any other security, statute or rule of law.
+    </li>
+    <li>The Parties hereto confirm and acknowledge that this Agreement shall constitute the entire agreement between
+        them and shall supersede and override all previous communications, either oral or written, between the Parties
+        with respect to the subject matter of this Agreement, and no agreement or understanding varying or extending the
+        same shall be binding upon any Party hereto unless arising out of the specific provisions of this Agreement.
+    </li>
+    <li>No amendment, modification or addition to this Agreement shall be binding on all the Parties hereto unless set
+        forth in writing and executed by them or through their duly authorized representatives.
+    </li>
+    <li>If any term, provision, covenant or restriction of this Agreement is held by a court of competent jurisdiction
+        to be invalid, void or unenforceable, the remainder of the terms, provisions, covenants and restrictions of this
+        Agreement shall remain in full force and effect and shall in no way be affected, impaired or invalidated.
+    </li>
+    <li>Any notice or demand hereunder shall be in writing and sent through post at the address specified above or the
+        address last known to the Party sending the notice. Any notice sent under this agreement shall be deemed to be
+        delivered 2 business days following the dispatch of the notice.
+    </li>
+</ol>
+
+<br></br>
+
+<p>IN WITNESS WHEREOF, THE PARTIES HAVE EXECUTED AND DELIVERED THIS AGREEMENT ON THE DAY AND YEAR FIRST ABOVE WRITTEN.
+</p>
+
+<br></br>
+<p>For and on behalf of Lender</p>
+<p style="text-align:right">For and on behalf of Borrower</p>
+<p style="text-align:right">(customer name as in Annexure 2)</p>
+<p>…………………………….</p>
+<p>{UserName}</p>
+
+<hr style="page-break-before:always;display:none;"></hr>
+
+<h2 style="text-align: center;">Annexure 1</h2>
+<p>PARTNER: MYWN TECH PVT LTD (CIN &ndash; U72200KA2015PTC083534) </p>
+<p>Lendbox has entered into a service agreement with MYWN TECH PVT LTD dated <b>12/10/2021</b> to provide Line of Credit
+    to its customers.</p>
+<h2 style="text-align: center;">Annexure 2</h2>
+<table class="mainTable">
+    <tbody>
+    <tr>
+        <td><b>Name </b></td>
+        <td th:text="${name}"><b></b></td>
+    </tr>
+    <tr>
+        <td><b>PAN Number</b></td>
+        <td th:text="${pan}"><b></b></td>
+    </tr>
+    <tr>
+        <td><b>Mobile Number</b></td>
+        <td th:text="${mobile}"><b></b></td>
+    </tr>
+    <tr>
+        <td><b>Email ID</b></td>
+        <td th:text="${email}"><b></b></td>
+    </tr>
+    <tr>
+        <td><b>Pincode</b></td>
+        <td th:text="${pincode}"><b></b></td>
+    </tr>
+    <tr>
+        <td><b>Timestamp</b></td>
+        <td th:text="${timestamp}"><b></b></td>
+    </tr>
+    <tr>
+        <td><b>Validity of LOC</b></td>
+        <td><b>3 years from the date of signing of this agreement
+        </b></td>
+    </tr>
+    <tr>
+        <td><b>Limit Amount</b></td>
+        <td><b>Rs 100 &ndash; Rs 10000</b></td>
+    </tr>
+    <tr>
+        <td><b>Due Date</b></td>
+        <td><b>5th of every month</b></td>
+    </tr>
+    <tr>
+        <td><b>Late Fees</b></td>
+        <td><b>Rs.30 per day post due date</b></td>
+    </tr>
+    </tbody>
+</table>
+</body>
