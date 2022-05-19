@@ -29,7 +29,7 @@
     </style>
 </head>
 <body>
-<p><i>This Loan Agreement (<b>&quot;Agreement&quot;</b>) is executed at Delhi on this; Timestamp</i></p><p th:text="${timestamp}"></p>
+<p style="font-style: italic;" th:text="'This Loan Agreement (&quot;Agreement&quot;) is executed at Delhi on this; Timestamp  ' + ${timestamp}"></p>
 
 <p style="text-align: center;">BY AND BETWEEN</p>
 
@@ -56,12 +56,12 @@
         on the total Loan amount. For detailed lender information visit www.lendbox.in
     </li>
     <li>Lendbox has entered into an agreement with MYWN Tech Private Limited(hereinafter referred to as the &quot;FREO&quot;).
-        The Borrower is a customer registered on the FREO&rsquo;S platform and BOTH PARTIES agree that the terms of this
+        The Borrower is a customer registered on the FREO'S platform and BOTH PARTIES agree that the terms of this
         agreement are subject to the terms and conditions laid down in the agreement signed between Lendbox &amp; FREO
-        &ndash; described in detail in Annexure 1.
+        - described in detail in Annexure 1.
     </li>
     <li>Lendbox has authorized various third parties to provide services with regard to onboarding, management and
-        collections from the Borrower and act as a customer touch points besides Lendbox&rsquo;s own personnel. FREO is
+        collections from the Borrower and act as a customer touch points besides Lendbox's own personnel. FREO is
         one such partner.
     </li>
     <li>The Parties acknowledge that the transaction of lending and repayment is being facilitated by Transactree
@@ -74,8 +74,8 @@
         which have been provided to the Lender. The amount shall be transferred and disbursed from the Nodal account set
         up by Lendbox and Partner for disbursements in no later than 48 hours from the time of funding of the escrow
         account by the Lender, subject to any banking holiday and such delay if any will not change the terms and
-        conditions of the Loan repayment in any manner. It is the Partner&rsquo;s responsibility to transfer the amount
-        into Borrower&rsquo;s account or into any other account identified by the Borrower, such as the merchant etc.
+        conditions of the Loan repayment in any manner. It is the Partner's responsibility to transfer the amount
+        into Borrower's account or into any other account identified by the Borrower, such as the merchant etc.
         from the nodal account. The Borrower shall deposit the repayments for the Loan through the Service Platform, and
         the Partner shall transfer these repayments in the account specified by Lendbox, being the escrow account of
         Lendbox for repayments based on the terms and conditions of the loan repayment mentioned in Annexure 2.
@@ -160,7 +160,7 @@
     </li>
     <li>The Borrower shall indemnify and hold the Lender and Lendbox harmless from and against any and all loss, damage
         or other consequences which may arise or result from giving the Loan to the Borrower and shall reimburse the
-        Lender and/or Lendbox upon demand all such sums and shall upon request appear and defend at the Borrower&rsquo;s
+        Lender and/or Lendbox upon demand all such sums and shall upon request appear and defend at the Borrower's
         own cost and expenses any action which may be brought against the Lender in connection therewith and shall
         accept the statement of account presented by the party claiming the loss as conclusive proof of the correctness
         of any such claim to be due from him.
@@ -188,7 +188,7 @@
         levied by the Recovery Agent shall be to the account of the Lender. The Parties understand that Lendbox is only
         offering its assistance in recovery on account of a default and in no manner is liable for any default, being a
         marketplace for prospective lenders and borrowers to meet and interact. For the purpose of this Loan, The
-        Recovery Agent shall be Partner and it&rsquo;s service providers or sub-agents.
+        Recovery Agent shall be Partner and it's service providers or sub-agents.
     </li>
     <li>The rights, powers and remedies given to the Lender by this Agreement shall be in addition to all rights, powers
         and remedies given to the Lender by virtue of any other security, statute or rule of law.
@@ -221,12 +221,12 @@
 <p style="text-align:right">For and on behalf of Borrower</p>
 <p style="text-align:right">(customer name as in Annexure 2)</p>
 <p>…………………………….</p>
-<p>{UserName}</p>
+<p th:text="${name}"></p>
 
 <hr style="page-break-before:always;display:none;"></hr>
 
 <h2 style="text-align: center;">Annexure 1</h2>
-<p>PARTNER: MYWN TECH PVT LTD (CIN &ndash; U72200KA2015PTC083534) </p>
+<p>PARTNER: MYWN TECH PVT LTD (CIN - U72200KA2015PTC083534) </p>
 <p>Lendbox has entered into a service agreement with MYWN TECH PVT LTD dated <b>12/10/2021</b> to provide Line of Credit
     to its customers.</p>
 <h2 style="text-align: center;">Annexure 2</h2>
@@ -263,7 +263,7 @@
     </tr>
     <tr>
         <td><b>Limit Amount</b></td>
-        <td><b>Rs 100 &ndash; Rs 10000</b></td>
+        <td><b>Rs 100 - Rs 10000</b></td>
     </tr>
     <tr>
         <td><b>Due Date</b></td>
@@ -276,3 +276,4 @@
     </tbody>
 </table>
 </body>
+</html>

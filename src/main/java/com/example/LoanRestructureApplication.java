@@ -18,7 +18,7 @@ import java.util.List;
 
 public class LoanRestructureApplication {
     private static final Logger LOG = LoggerFactory.getLogger(LoanRestructureApplication.class);
-    private static final String Excel_FILE = "/home/ankit/Downloads/loanRestructre/src/main/resources";
+    private static final String Excel_FILE = "/Users/ank/Downloads/old_Downloads/loanrestructure/src/main/resources";
 
     public static void main(String[] args) throws IOException, DocumentException {
 
